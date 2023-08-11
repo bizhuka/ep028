@@ -1,0 +1,262 @@
+{
+  "_version": "1.44.0",
+  "sap.app": {
+    "id": "zep028lr",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.9.6",
+      "toolsId": "fd0a6ecd-fce4-4db7-b2c9-92028376cc33"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/ZC_EP028_VACANCY_HEAD_CDS/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "ZC_EP028_VACANCY_HEAD_CDS_VAN",
+          "annotation"],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "ZC_EP028_VACANCY_HEAD_CDS_VAN": {
+        "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZC_EP028_VACANCY_HEAD_CDS_VAN',Version='0001')/$value/",
+        "type": "ODataAnnotation",
+        "settings": {
+          "localUri": "localService/ZC_EP028_VACANCY_HEAD_CDS_VAN.xml"
+        }
+      },
+      "annotation": {
+        "type": "ODataAnnotation",
+        "uri": "annotations/annotation.xml",
+        "settings": {
+          "localUri": "annotations/annotation.xml"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.104.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.ushell": {},
+        "sap.f": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.suite.ui.generic.template": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "zep028lr.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "defaultBindingMode": "TwoWay",          
+          "refreshAfterChange": false,
+                          "defaultCountMode": "Inline",
+                          "metadataUrlParams": {
+                            "sap-value-list": "all"
+                          }
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [],
+      "targets": {}
+    },
+
+                        "extends": {
+                          "extensions": {
+                            "sap.ui.controllerExtensions": {
+                              "sap.suite.ui.generic.template.ListReport.view.ListReport": {
+                                "controllerName": "zep028lr.controller.ListReportExtension",
+
+                                "sap.ui.generic.app": {
+                                  "zc_ep028_vacancy_head": {
+                                      "EntitySet": "zc_ep028_vacancy_head",                                      
+                                      "Actions": {
+                                          "CREATE_BLANK": {
+                                              "id": "bt_create_blank",
+                                              "text" : "Create blank",
+                                              "press": "onCreateBlankPress",
+                                              "requiresSelection": false
+                                          }
+                                        }
+                                    }
+                                  }                                  
+                              },
+                              "sap.suite.ui.generic.template.ObjectPage.view.Details":{
+                                "controllerName": "zep028lr.controller.ObjectPageExtension",
+
+                                "sap.ui.generic.app": {
+                                  "zc_ep028_vacancy_head": {
+                                      "EntitySet": "zc_ep028_vacancy_head",
+                                      "Header" : {
+                                      "Actions": {
+                                          "APPLY_JOB": {
+                                              "id": "bt_apply_job",
+                                              "text" : "Apply job",
+                                              "press": "onApplyJobPress",
+                                              "icon":  {
+                                                "src": "sap-icon://workflow-tasks"
+                                              }
+                                          },
+                                          "PRINT_JPRF_LETTER": {
+                                            "id": "bt_print_jprf_letter",
+                                            "text" : "Print JPRF letter",
+                                            "press": "onPrintJprfLetter",
+                                            "icon":  {
+                                              "src": "sap-icon://print"
+                                            }
+                                        }
+                                        }
+                                      }
+                                    }
+                                  }
+                              }
+                            },
+                            "sap.ui.viewExtensions": {    
+                              "comment1": "         It is a new column",
+                              "sap.suite.ui.generic.template.ListReport.view.ListReport": {
+                                "ResponsiveTableColumnsExtension|zc_ep028_vacancy_head": {
+                                  "className": "sap.ui.core.Fragment",
+                                  "fragmentName": "zep028lr.fragment.lrpDynamicColumns",
+                                  "type": "XML"
+                                },
+                                "ResponsiveTableCellsExtension|zc_ep028_vacancy_head": {
+                                  "className": "sap.ui.core.Fragment",
+                                  "fragmentName": "zep028lr.fragment.lrpDynamicCells",
+                                  "type": "XML"
+                                },
+
+                                "comment2": "         Group by directorate",
+                                "SmartFilterBarControlConfigurationExtension|zc_ep028_vacancy_head": {
+                                        "className": "sap.ui.core.Fragment",
+                                        "fragmentName": "zep028lr.fragment.CustomFilter",
+                                        "type": "XML"
+                                }                 
+                              },
+
+                              "__sap.suite.ui.generic.template.ObjectPage.view.Details": {
+                                "AfterFacet|zc_ep028_vacancy_head|TechData": {
+                                  "className": "sap.ui.core.Fragment",
+                                  "fragmentName": "zep028lr.fragment.IAF_frag",
+                                  "type": "XML",
+                                  "sap.ui.generic.app": {
+                                      "title": "Applied Application Forms"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+  },
+  "sap.ui.generic.app": {
+    "_version": "1.3.0",
+    "settings": {
+      "forceGlobalRefresh": false,
+      "objectPageHeaderType": "Dynamic",
+      "considerAnalyticalParameters": true,
+      "showDraftToggle": false,
+      "flexibleColumnLayout": {
+        "defaultTwoColumnLayoutType": "TwoColumnsMidExpanded"
+      }
+    },
+    "pages": {
+      "ListReport|zc_ep028_vacancy_head": {
+        "entitySet": "zc_ep028_vacancy_head",
+        "component": {
+          "name": "sap.suite.ui.generic.template.ListReport",
+          "list": true,
+          "settings": {
+            "condensedTableLayout": true,
+            "smartVariantManagement": true,
+            "enableTableFilterInPageVariant": true,
+            "gridTable" : false,
+            "multiSelect": false,
+            "filterSettings": {
+              "dateSettings": {
+                "useDateRange": true
+              }
+            },
+                             "dataLoadSettings": {  "loadDataOnAppLaunch": "always" },
+
+                             "tableSettings": {
+                              "multiSelect": true,
+                              "createWithParameterDialog" : {
+                                "fields" : {
+                                    "jprf_id":{"path": "jprf_id"},
+                                    "hr_repr":{"path": "hr_repr"},
+                                    "comments":{"path": "comments"},
+                                    "status":{"path": "status"}                                    
+                                }
+                              },
+                              "multiEdit": {
+                                "enabled" : true,
+                                "annotationPath": "com.sap.vocabularies.UI.v1.FieldGroup#State"
+                               }
+                              }
+          }
+        },
+        "pages": {
+          "ObjectPage|zc_ep028_vacancy_head": {
+            "entitySet": "zc_ep028_vacancy_head",
+            "defaultLayoutTypeIfExternalNavigation": "MidColumnFullScreen",
+            "component": {
+              "name": "sap.suite.ui.generic.template.ObjectPage"
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  }
+}

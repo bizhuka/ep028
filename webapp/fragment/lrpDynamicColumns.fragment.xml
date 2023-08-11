@@ -1,0 +1,15 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+	<Column width="2.9rem" minScreenWidth="2rem">
+		<Text text="S / A" tooltip="Status and Action Apply job"/>
+		<customData>
+			<core:CustomData key="p13nData" value='\{"columnKey": "apply", "columnIndex" : "0"}'/>
+		</customData>
+	</Column>
+
+	<!-- <Column width="10rem">
+		<Text text="Ssdfsdfsdf" tooltip="Status"/>
+		<customData>
+			<core:CustomData key="p13nData" value='\{"columnKey": "vacancy_type", "columnIndex" : "7"}'/>
+		</customData>
+	</Column> -->
+</core:FragmentDefinition>

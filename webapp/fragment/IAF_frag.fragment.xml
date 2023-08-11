@@ -1,0 +1,96 @@
+<core:FragmentDefinition  xmlns:m="sap.m"
+                          xmlns:l="sap.ui.layout"
+						  xmlns:unified="sap.ui.unified"
+						  xmlns:core="sap.ui.core"
+						  xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	                      xmlns:smartTable="sap.ui.comp.smarttable"
+	 >
+<m:VBox width="100%">
+		<smartTable:SmartTable
+			id="idIafTable" 
+			entitySet="ZI_EP0298_IAF" 
+			header="Application Forms" 
+			showRowCount="true"
+			initiallyVisibleFields="iaf_id,vacancy_id,employee_id,transfer_date,transfer_date_type,created_by,created_date,created_time"
+			requestAtLeastFields="guid"
+			useTablePersonalisation="false"	
+			useExportToExcel="false"
+			beforeRebindTable="onBeforeRebindIAFTable"				
+			>
+
+		<m:Table sticky="ColumnHeaders,HeaderToolbar">
+			<m:columns>
+				<m:Column>
+					<m:customData>
+						<core:CustomData key="p13nData" value='\{"columnKey": "edit", "columnIndex": 0}'/>
+					</m:customData>
+					<m:Text text="Show / Hide"></m:Text>
+				</m:Column>
+			</m:columns>
+			<m:items>
+				<m:ColumnListItem>
+					<m:HBox>
+						<m:Link text="Attachment" target="{guid}|{iaf_id}" press="onIafDrillDown($event, 'idIafAttachmentTable')"></m:Link>
+						<m:Text text = " - "/>
+						<m:Link text="History" target="{guid}|{iaf_id}" press="onIafDrillDown($event, 'idIafHistoryTable')"></m:Link>
+					</m:HBox>
+				</m:ColumnListItem>
+			</m:items>
+		</m:Table>
+	</smartTable:SmartTable>
+
+	<smartTable:SmartTable
+			id="idIafAttachmentTable" 
+			visible="false"
+			entitySet="ZI_EP0298_IAF_Attachment" 
+			header="Attachment" 
+			showRowCount="true"
+			initiallyVisibleFields="filesize,cr_name,cr_date,cr_time,ch_name,ch_date,ch_time"
+			requestAtLeastFields="descr,guid,atta_id"
+			useTablePersonalisation="false"	
+			useExportToExcel="false"
+			enableAutoColumnWidth="true"
+			beforeRebindTable="onBeforeRebindIafAttachmentTable"
+			>
+		<smartTable:customToolbar>
+			<m:OverflowToolbar design="Transparent">
+				<m:ToolbarSpacer/>
+				<m:Button text="Add files" icon="sap-icon://attachment" press="onAddAttachment"/>
+				<m:Button text="Delete files" icon="sap-icon://delete" press="onDeleteAttachment"/>
+			</m:OverflowToolbar>
+		</smartTable:customToolbar>
+
+		<m:Table id="idIafAttachmentInnerTable"  autoPopinMode="true" mode="MultiSelect" sticky="ColumnHeaders,HeaderToolbar">
+			<m:columns>
+				<m:Column>
+					<m:customData>
+						<core:CustomData key="p13nData" value='\{"columnKey": "edit", "columnIndex": 0}'/>
+					</m:customData>
+					<m:Text text="File name"></m:Text>
+				</m:Column>
+			</m:columns>
+			<m:items>
+				<m:ColumnListItem>
+					<m:Link text="{descr}" target="{guid}|{atta_id}" press="onIafAttachmentFileClick"></m:Link>
+				</m:ColumnListItem>
+			</m:items>
+		</m:Table>
+	</smartTable:SmartTable>
+
+	<smartTable:SmartTable
+			id="idIafHistoryTable" 
+			visible="false"
+			entitySet="ZI_EP0298_IAF_History" 
+			header="History" 
+			showRowCount="true"
+			initiallyVisibleFields="new_appr_stage,appr_stage,action,uname,action_date,action_time,decision_note,archive"
+			requestAtLeastFields="guid"
+			useTablePersonalisation="false"	
+			useExportToExcel="false"
+			enableAutoColumnWidth="true"
+			beforeRebindTable="onBeforeRebindIafHistoryTable"
+			>
+		<m:Table autoPopinMode="true"/>
+	</smartTable:SmartTable>
+</m:VBox>
+</core:FragmentDefinition>

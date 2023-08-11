@@ -1,0 +1,145 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Communication.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication" />
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/sap/ZC_EP028_VACANCY_HEAD_CDS/$metadata">
+        <edmx:Include Namespace="ZC_EP028_VACANCY_HEAD_CDS" Alias="SAP" />
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local" />
+    </edmx:DataServices>
+    <Annotations Target="ZC_EP028_VACANCY_HEAD_CDS.zc_ep028_vacancy_headType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+
+        <!-- <Annotation Term="UI.LineItem"> Have to declare all fields :(
+            <Collection>
+                <Record Type="UI.DataFieldWithUrl">                    
+                    <PropertyValue Property="Value" Path="jprf_id" />
+                    <PropertyValue Property="Label" String="Vacancy and Job Description" />
+                    <PropertyValue Property="Url" Path="link_job_descr" />
+                </Record>
+                <Record Type="UI.DataField"><PropertyValue Property="Value" Path="vacancy_type" />
+                    <PropertyValue Property="Label" String="Work type" />
+                    <Annotation Term="com.sap.vocabularies.HTML5.v1.CssDefaults">
+                                <Record>
+                                    <PropertyValue Property="width" String="8rem"/>
+                                </Record>
+                    </Annotation>
+                </Record>
+            </Collection>       
+        </Annotation> -->
+
+        <Annotation Term="UI.Facets">
+            <Collection>
+                <Record Type="UI.CollectionFacet">
+                    <PropertyValue Property="ID" String="GenData" />
+                    <PropertyValue Property="Label" String="Request Info" />
+                    <PropertyValue Property="Facets">
+                        <Collection>
+                            <!-- Facet: General Data: OrgAssignment, IDs etc.  -->
+                            <Record Type="UI.ReferenceFacet">
+                                <PropertyValue Property="Label" String="Org. Assignment" />
+                                <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#GenData" />
+                            </Record>
+
+                            <!-- Facet: Vacancy Description: Name, Grade etc.  -->
+                            <Record Type="UI.ReferenceFacet">
+                                <PropertyValue Property="Label" String="Vacancy Details" />
+                                <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#VacancyData" />
+                            </Record>
+
+                            <!-- Facet: Additional Data: HR Representative etc.  -->
+                            <Record Type="UI.ReferenceFacet">
+                                <PropertyValue Property="Label" String="Additional Info" />
+                                <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#AuxData" />
+                            </Record>
+                        </Collection>
+                    </PropertyValue>
+                </Record>
+
+                <Record Type="UI.CollectionFacet">
+                    <PropertyValue Property="ID" String="TechData" />
+                    <PropertyValue Property="Label" String="Technical Info" />
+                    <PropertyValue Property="Facets">
+                        <Collection>
+                            <!-- State -->
+                            <Record Type="UI.ReferenceFacet">
+                                <PropertyValue Property="Label" String="State" />
+                                <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#State" />
+                            </Record>
+                        </Collection>
+                    </PropertyValue>
+                </Record>
+            </Collection>
+        </Annotation>
+    </Annotations>
+
+    <!-- Change order in SH -->
+    <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZC_EP028_VACANCY_HEAD_CDS.zc_ep028_vacancy_headType/jprf_id">
+        <Annotation Term="Common.ValueList">
+            <Record>
+                <PropertyValue Property="Label" String="JPRF" />
+                <PropertyValue Property="CollectionPath" String="ZSH_EP028_JPRF" />
+                <PropertyValue Property="SearchSupported" Bool="true" />
+                <PropertyValue Property="Parameters">
+                    <Collection>
+                        <Record Type="Common.ValueListParameterInOut">
+                            <PropertyValue Property="LocalDataProperty" PropertyPath="jprf_id" />
+                            <PropertyValue Property="ValueListProperty" String="jprf_id" />
+                        </Record>
+                        <Record Type="Common.ValueListParameterDisplayOnly">
+                            <PropertyValue Property="ValueListProperty" String="begda" />
+                        </Record>
+                        <Record Type="Common.ValueListParameterDisplayOnly">
+                            <PropertyValue Property="ValueListProperty" String="endda" />
+                        </Record>
+                        <Record Type="Common.ValueListParameterDisplayOnly">
+                            <PropertyValue Property="ValueListProperty" String="posit" />
+                        </Record>
+                        <Record Type="Common.ValueListParameterDisplayOnly">
+                            <PropertyValue Property="ValueListProperty" String="wkptr" />
+                        </Record>
+                        <Record Type="Common.ValueListParameterDisplayOnly">
+                            <PropertyValue Property="ValueListProperty" String="persa" />
+                        </Record>
+                        <Record Type="Common.ValueListParameterDisplayOnly">
+                            <PropertyValue Property="ValueListProperty" String="stat1" />
+                        </Record>
+                        <Record Type="Common.ValueListParameterDisplayOnly">
+                            <PropertyValue Property="ValueListProperty" String="pnew" />
+                        </Record>
+                        <Record Type="Common.ValueListParameterDisplayOnly">
+                            <PropertyValue Property="ValueListProperty" String="prepl" />
+                        </Record>
+                        <Record Type="Common.ValueListParameterDisplayOnly">
+                            <PropertyValue Property="ValueListProperty" String="trepl" />
+                        </Record>
+                        <Record Type="Common.ValueListParameterDisplayOnly">
+                            <PropertyValue Property="ValueListProperty" String="prnew" />
+                        </Record>
+                        <Record Type="Common.ValueListParameterDisplayOnly">
+                            <PropertyValue Property="ValueListProperty" String="prrep" />
+                        </Record>
+                        <Record Type="Common.ValueListParameterDisplayOnly">
+                            <PropertyValue Property="ValueListProperty" String="extp" />
+                        </Record>
+                        <Record Type="Common.ValueListParameterDisplayOnly">
+                            <PropertyValue Property="ValueListProperty" String="intp" />
+                        </Record>
+                        <Record Type="Common.ValueListParameterDisplayOnly">
+                            <PropertyValue Property="ValueListProperty" String="exps" />
+                        </Record>
+                        <Record Type="Common.ValueListParameterDisplayOnly">
+                            <PropertyValue Property="ValueListProperty" String="nats" />
+                        </Record>
+                    </Collection>
+                </PropertyValue>
+            </Record>
+        </Annotation>
+    </Annotations>
+</edmx:Edmx>

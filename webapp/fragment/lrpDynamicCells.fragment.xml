@@ -1,0 +1,11 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+<!--text="{vac_status_text}" -->
+	<ObjectStatus
+        icon="{= ${status} === 'VISIBLE' ? 'sap-icon://show': ${status} === 'HIDDEN' ? 'sap-icon://hide' : ${status} === 'CLOSED' ? 'sap-icon://decline' : 'sap-icon://write-new-document' }"
+        state="{= ${status} === 'VISIBLE' ? 'Success': ${status} === 'HIDDEN' ? 'None' : ${status} === 'CLOSED' ? 'Error' : 'Information' }"
+        
+        tooltip="Apply job"
+        active="true"
+        press="onApplyJobPress"/>
+        
+</core:FragmentDefinition>

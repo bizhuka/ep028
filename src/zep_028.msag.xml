@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZEP_028</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>Messages for Internal Vacancy</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZEP_028</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Internal Vacancy for JPRF &amp;1 already exists</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZEP_028</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Vacancy data saved successfully</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZEP_028</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>JPRF id cannot be empty</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZEP_028</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>JPRF &amp;1 with status &amp;2 cannot be deleted (only drafts can be deleted)</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZEP_028</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>No administrator rights to change data</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZEP_028</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>There is already the IAF request &apos;&amp;1&apos; exits for you. Please check it</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZEP_028</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>Fill out &amp;1 entry field</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZEP_028</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>&amp;1 is not relevant for position &amp;2</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZEP_028</ARBGB>
+     <MSGNR>009</MSGNR>
+     <TEXT>Grade from &amp;1 is bigger than Grade to &amp;2</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

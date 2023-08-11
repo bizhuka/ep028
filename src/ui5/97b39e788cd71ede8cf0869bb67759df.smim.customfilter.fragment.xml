@@ -1,0 +1,18 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:smartfilterbar="sap.ui.comp.smartfilterbar" xmlns:core="sap.ui.core">
+    <!-- <smartfilterbar:ControlConfiguration key="key_group_by_dir" label="Group by directorate" visibleInAdvancedArea="true" groupId="_BASIC">
+        <smartfilterbar:customControl>
+            <Switch id="id_group_by_dir" type="Default" state="true"/>
+        </smartfilterbar:customControl>        
+    </smartfilterbar:ControlConfiguration>     -->
+
+    <smartfilterbar:ControlConfiguration key="key_group_list" label="Group by" visibleInAdvancedArea="true" groupId="_BASIC">
+        <smartfilterbar:customControl>
+            <Select id="id_group_by"
+					items="{grp_by>/grp_items}">
+				<core:Item key="{grp_by>key}" text="{grp_by>value}" />
+			</Select>
+        </smartfilterbar:customControl>        
+    </smartfilterbar:ControlConfiguration> 
+    
+
+</core:FragmentDefinition>

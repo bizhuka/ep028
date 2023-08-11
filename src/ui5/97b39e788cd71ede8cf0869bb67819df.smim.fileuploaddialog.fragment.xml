@@ -1,0 +1,41 @@
+<core:FragmentDefinition
+            xmlns="sap.m"
+            xmlns:form="sap.ui.layout.form"
+            xmlns:core="sap.ui.core"            
+            xmlns:u="sap.ui.unified">
+    <Dialog class="sapUiPopupWithPadding" title="Import from Excel" resizable="false" draggable="false" showHeader="false" horizontalScrolling="false"
+            beforeOpen="onBeforeDialogOpen">
+        <content>
+            <form:SimpleForm title="{= ${iaf_info>/is_new} ? 'Apply job' : 'Add files to IAF'}">
+                <form:content>
+                    <Label text="Employee" visible="{iaf_info>/is_new}"/>
+                    <Input enabled="false" visible="{iaf_info>/is_new}" value="{iaf_info>/employee}"/>
+
+                    <Label text="Vacancy"  visible="{iaf_info>/is_new}"/>
+                    <Input enabled="false" visible="{iaf_info>/is_new}" value="{iaf_info>/vacancy}"/>
+
+
+                    <Label text="Comments"  visible="{iaf_info>/is_new}"/>
+                    <TextArea               visible="{iaf_info>/is_new}" value="{iaf_info>/comments}"/>
+                    
+
+                    <!-- Attach CV (Optional) -->
+                    <Label text="{= ${iaf_info>/is_new} ? 'Attach CV' : 'Select files'}"/>                    
+                    <u:FileUploader name="myFileUpload" tooltip="Upload (*.*)" style="Emphasized"
+                            placeholder="Chooses files for Upload (*.*)"
+                            sendXHR="true"
+                            useMultipart="false"
+
+                            uploadStart="handleUploadStart"
+                            uploadComplete="handleUploadComplete" 
+                            
+                            multiple="true"/>
+                </form:content>
+            </form:SimpleForm>
+        </content>
+        <buttons>
+            <Button text="{= ${iaf_info>/is_new} ? 'Apply' : 'Upload files'}" type="Emphasized" press="handleUploadPress" />
+            <Button text="Cancel" press="handleCancelPress" />
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

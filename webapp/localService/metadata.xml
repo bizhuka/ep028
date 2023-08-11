@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri=".12/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZC_EP028_VACANCY_HEAD_CDS" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="zc_ep028_vacancy_headType" sap:label="Internal Vacancy List" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="db_key"/>
+                </Key>
+                <Property Name="Test_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="db_key" Type="Edm.Binary" Nullable="false" sap:label="NodeID"/>
+                <Property Name="location" Type="Edm.String" MaxLength="40" sap:label="Location"/>
+                <Property Name="work_sched" Type="Edm.String" MaxLength="40" sap:label="Work pattern"/>
+                <Property Name="grade" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Grade"/>
+                <Property Name="comp_slot" Type="Edm.String" MaxLength="20" sap:label="Company’s slot"/>
+                <Property Name="vacancy_type" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Temp / Perm / Proj"/>
+                <Property Name="JobDescrUrl" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase"/>
+                <Property Name="link_job_descr" Type="Edm.String" MaxLength="255" sap:display-format="UpperCase" sap:label="Link to Job Descr"/>
+                <Property Name="hr_repr" Type="Edm.String" MaxLength="50" sap:label="HR Representative"/>
+                <Property Name="status" Type="Edm.String" MaxLength="7" sap:display-format="UpperCase" sap:label="Status"/>
+                <Property Name="comments" Type="Edm.String" MaxLength="255" sap:label="Text"/>
+                <Property Name="jprf_id" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:label="Object ID"/>
+                <Property Name="directorate" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:label="Directorat ID"/>
+                <Property Name="directorate_name" Type="Edm.String" MaxLength="128" sap:label="Work Area Length 128"/>
+                <Property Name="department" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:label="Department ID"/>
+                <Property Name="department_name" Type="Edm.String" MaxLength="40" sap:label="Department"/>
+                <Property Name="vacancy_descr" Type="Edm.String" MaxLength="100" sap:label="Vacancy Descr"/>
+                <Property Name="job_id" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:label="Job key"/>
+                <Property Name="pos_id" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:label="Position"/>
+            </EntityType>
+            <EntityContainer Name="ZC_EP028_VACANCY_HEAD_CDS_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="zc_ep028_vacancy_head" EntityType="ZC_EP028_VACANCY_HEAD_CDS.zc_ep028_vacancy_headType" sap:searchable="true" sap:content-version="1"/>
+            </EntityContainer>
+            <Annotations Target="ZC_EP028_VACANCY_HEAD_CDS.zc_ep028_vacancy_headType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticKey">
+                    <Collection>
+                        <PropertyPath>job_id</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="http://happ01kd6.kio.kz:8012/sap/opu/odata/sap/ZC_EP028_VACANCY_HEAD_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://happ01kd6.kio.kz:8012/sap/opu/odata/sap/ZC_EP028_VACANCY_HEAD_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

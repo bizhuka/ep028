@@ -1,0 +1,57 @@
+<core:FragmentDefinition
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.uxap"
+    xmlns:m="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:unified="sap.ui.unified"
+	xmlns:core="sap.ui.core"
+	>
+
+<ObjectPageLayout
+        id="id_main_view"
+        enableLazyLoading="true"		
+		upperCaseAnchorBar="false"
+        useIconTabBar="true"
+		sectionChange="onSectionChange">
+		<sections>
+
+			<ObjectPageSection titleUppercase="false" id="idMainSection">
+						<customAnchorBarButton>
+							<m:Button icon="sap-icon://pending"
+								      text="Internal Vacancies"/>
+						</customAnchorBarButton>
+
+					<subSections>
+					<ObjectPageSubSection id="idSmartTableParent">
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection id="idIafSection" visible="{= !${usr>/is_admin} }">
+				<customAnchorBarButton>
+					<m:Button icon="sap-icon://employee"
+					          text="My Application Forms"/>
+				</customAnchorBarButton>
+
+                <ObjectPageSubSection id="idIafSubSection">
+					<core:Fragment id="my" fragmentName="zep028lr.fragment.IAF_frag" type="XML"/>
+                </ObjectPageSubSection>
+			</ObjectPageSection>
+
+			<ObjectPageSection titleUppercase="false" id="idAboutSection">
+						<customAnchorBarButton>
+							<m:Button icon="sap-icon://hint"
+								      text="About"/>
+						</customAnchorBarButton>
+
+					<subSections>
+					<ObjectPageSubSection id="idAboutSubSection">
+						<m:Label text="Help"/>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+		</sections>
+
+	</ObjectPageLayout>
+</core:FragmentDefinition>
